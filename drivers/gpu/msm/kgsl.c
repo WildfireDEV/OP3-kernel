@@ -4091,7 +4091,7 @@ static int __init kgsl_core_init(void)
 	kgsl_driver.mem_workqueue =
 		create_singlethread_workqueue("kgsl-mementry");
 
-	init_kthread_worker(&kgsl_driver.worker);
+	kthread_init_worker(&kgsl_driver.worker);
 
 	kgsl_driver.worker_thread = kthread_run(kthread_worker_fn,
 		&kgsl_driver.worker, "kgsl_worker_thread");
